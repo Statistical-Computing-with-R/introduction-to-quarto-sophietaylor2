@@ -2,7 +2,12 @@
 title: "Lab 1: Introduction to Quarto"
 author: "Sophia Taylor"
 date: "09/26/24"
-format: html
+format: 
+  html:
+    code-fold: true
+    toc: true
+    theme: morph
+    fontcolor: "#2E236C"
 editor: source
 embed-resources: true
 execute: 
@@ -97,3 +102,29 @@ should be **center aligned**.
 **Question 9** -- Specify a **figure caption** for the boxplots (using a
 code-chunk option).
 
+## Results and Analysis
+
+**Question 10**
+```{r}
+# Load the ToothGrowth dataset
+data("ToothGrowth")
+
+# Perform the t-test
+t_test_result <- t.test(len ~ supp, data = ToothGrowth, var.equal = FALSE, alternative = "two.sided")
+
+# Print the result
+print(t_test_result)
+
+```
+
+**Question 11** -- Run your code chunk to obtain the output for your statistical test.
+
+**Question 12** -- Create a numbered list containing: Your conclusion (in the context of these data) based on the p-value. An interpretation of the confidence interval (make sure to read what confidence level is used by default).
+
+Since the p-value was 0.06063 which is greater than 0.05, we fail to reject the null hypothesis which means that there is no statistically significant evidence that treatment mean tooth length for the OJ supplement delivery method is different than the treatment mean tooth length for the VC supplement delivery method. The study also suggests, since the confidence interval is from -0.1710156 to 7.5710156 which includes 0, that there is no significant difference between the two delivery methods.
+
+**Question 13** -- Create another section header, describing the contents of this section.
+
+## Challenge 1
+
+Make the following changes to your document: Specify “code-folding” in your YAML document options. Add a table of contents to your document. Add a color theme to your document.
